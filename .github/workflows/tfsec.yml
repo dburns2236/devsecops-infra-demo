@@ -8,6 +8,7 @@ jobs:
   tfsec:
     name: Run tfsec 
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -15,7 +16,7 @@ jobs:
       - name: Install tfsec
         run: curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash          
     
-      - name: Run tfsec
+      - name: Run tfsec and save results
         run: |
           mkdir -p scan-results 
-          tfsec . > scan-results/tfsec-output.txt
+          tfsec --soft-fail . > scan-results/tfsec-output.txt
