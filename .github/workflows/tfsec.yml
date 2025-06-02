@@ -10,14 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Install tfsec
         run: curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash          
-
-      - name: Create Directory
-        run: mkdir -p scan-results 
     
-      - name: run tfsec
-        working-directory: ./devsecops-infra-demo
-        run: tfsec . > scan-results/tfsec-output.txt
+      - name: Run tfsec
+        run: |
+          mkdir -p scan-results 
+          tfsec . > scan-results/tfsec-output.txt
