@@ -17,6 +17,7 @@ jobs:
 
       - name: Create Directory
         run: mkdir -p scan-results 
-
+    
       - name: run tfsec
+        working-directory: ./devsecops-infra-demo
         run: tfsec . > scan-results/tfsec-output.txt
