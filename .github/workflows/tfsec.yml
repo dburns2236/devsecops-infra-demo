@@ -15,5 +15,8 @@ jobs:
       - name: Install tfsec
         run: curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash          
 
-      - name: Run tfsec
-        run: mkdir -p scan-results tfsec . > scan-results/tfsec-output.txt
+      - name: Create Directory
+        run: mkdir -p scan-results 
+
+      - name: run tfsec
+        run: tfsec . > scan-results/tfsec-output.txt
