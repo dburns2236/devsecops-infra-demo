@@ -1,0 +1,27 @@
+name: Checkov Terraform scan
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  Checkov:
+    name: Run Checkov 
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+            python-version: '3.x'
+
+      - name: Install Checkov
+        run: pip install checkov
+    
+      - name: Run Checkov scan
+        run: |
+          mkdir -p scan-results 
+          tcheckov -d . --output cli > scan-results/checkov.txt
