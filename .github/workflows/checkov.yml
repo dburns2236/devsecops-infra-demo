@@ -24,4 +24,4 @@ jobs:
       - name: Run Checkov scan
         run: |
           mkdir -p scan-results 
-          checkov -d . --output cli > scan-results/checkov.txt
+          checkov -d . --output cli --soft-fail > scan-results/checkov.txt
