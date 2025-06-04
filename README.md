@@ -4,6 +4,6 @@
 
 ## :lock: Security Tooling
 - **tfsec**: Scans Terraform for security misconfigurations
-  :link: Results: [scan-results/tfsec.txt](scan-results/tfsec.txt)
+&#128279; Results: [scan-results/tfsec.txt](scan-results/tfsec.txt)
 - **checkov**: Performs policy-based scanning on IaC
-  :link: Results: [scan-results/checkov.txt](scan-results/checkov.txt)
+&#128279; Results: [scan-results/checkov.txt](scan-results/checkov.txt)
